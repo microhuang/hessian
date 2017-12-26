@@ -1,10 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.caucho</groupId>
-  <artifactId>resin-hessian</artifactId>
+  <artifactId>hessian</artifactId>
   <packaging>jar</packaging>
-  <version>@VERSION@</version>
+  <version>4.0.51.2</version>
   <name>Hessian Binary Web Service</name>
   <url>http://hessian.caucho.com</url>
 
@@ -13,4 +15,19 @@
       <name>Apache License 1.0</name>
     </license>
   </licenses>
+  
+  <build>
+      <sourceDirectory>../src</sourceDirectory>    
+  </build>
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
 </project>

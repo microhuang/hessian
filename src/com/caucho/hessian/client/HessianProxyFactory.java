@@ -135,7 +135,8 @@ public class HessianProxyFactory implements ServiceProxyFactory, ObjectFactory {
 
   private boolean _isOverloadEnabled = false;
 
-  private boolean _isHessian2Reply = true;
+//  private boolean _isHessian2Reply = true;
+  private boolean _isHessian2Reply = false;
   private boolean _isHessian2Request = false;
 
   private boolean _isChunkedPost = true;
@@ -460,7 +461,8 @@ public class HessianProxyFactory implements ServiceProxyFactory, ObjectFactory {
 
   public AbstractHessianInput getHessianInput(InputStream is)
   {
-    return getHessian2Input(is);
+//    return getHessian2Input(is);
+    return getHessian1Input(is);
   }
 
   public AbstractHessianInput getHessian1Input(InputStream is)
