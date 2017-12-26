@@ -135,8 +135,7 @@ public class HessianProxyFactory implements ServiceProxyFactory, ObjectFactory {
 
   private boolean _isOverloadEnabled = false;
 
-//  private boolean _isHessian2Reply = true;
-  private boolean _isHessian2Reply = false;
+  private boolean _isHessian2Reply = true;
   private boolean _isHessian2Request = false;
 
   private boolean _isChunkedPost = true;
@@ -451,6 +450,11 @@ public class HessianProxyFactory implements ServiceProxyFactory, ObjectFactory {
       throw new NullPointerException("api must not be null for HessianProxyFactory.create()");
     InvocationHandler handler = null;
 
+    if("__hs=3".equals(url.getRef()))
+    {
+        this._isHessian2Reply=false;
+    }
+
     handler = new HessianProxy(url, this, api);
 
     return Proxy.newProxyInstance(loader,
@@ -461,7 +465,9 @@ public class HessianProxyFactory implements ServiceProxyFactory, ObjectFactory {
 
   public AbstractHessianInput getHessianInput(InputStream is)
   {
-//    return getHessian2Input(is);
+      if(_isHessian2Reply)
+    return getHessian2Input(is);
+      else
     return getHessian1Input(is);
   }
 
