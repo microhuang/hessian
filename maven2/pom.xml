@@ -7,8 +7,9 @@
   <artifactId>hessian</artifactId>
   <packaging>jar</packaging>
   <version>4.0.51.2</version>
-  <name>Hessian Binary Web Service</name>
+  <name>hessian-${project.version}</name>
   <url>http://hessian.caucho.com</url>
+  <description>当前修改版，与spring4集成，可调用hessian3.1.3服务</description>
 
   <licenses>
     <license>
