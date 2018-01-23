@@ -376,6 +376,7 @@ public class SerializerFactory extends AbstractSerializerFactory
     if (_isEnableUnsafeSerializer
         && JavaSerializer.getWriteReplace(cl) == null) {
       return UnsafeSerializer.create(cl);
+//      return JavaSerializer.create(cl);
     }
     else
       return JavaSerializer.create(cl);
