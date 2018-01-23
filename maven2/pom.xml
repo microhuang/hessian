@@ -6,7 +6,7 @@
   <groupId>com.caucho</groupId>
   <artifactId>hessian</artifactId>
   <packaging>jar</packaging>
-  <version>4.0.51.2</version>
+  <version>4.0.51.3</version>
   <name>hessian-${project.version}</name>
   <url>http://hessian.caucho.com</url>
   <description>当前修改版，与spring4集成，可调用hessian3.1.3服务</description>
@@ -22,14 +22,24 @@
 	<resources> 
             <resource>
                 <directory>../src</directory>
-<!--                <excludes>
+                <excludes>
                     <exclude>**/*.java</exclude>
-                </excludes>-->
+                </excludes>
                 <includes>
                     <include>**/*</include>
                 </includes>
             </resource> 
         </resources> 
+        <plugins>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-deploy-plugin</artifactId>
+                                <version>${maven_deploy_plugin_version}</version>
+                                <configuration>
+                                        <skip>${skip_maven_deploy}</skip>
+                                </configuration>
+                        </plugin>
+        </plugins>
   </build>
     <dependencies>
         <dependency>
@@ -41,5 +51,7 @@
     <properties>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <maven_deploy_plugin_version>2.8.2.3</maven_deploy_plugin_version>
     </properties>
 </project>

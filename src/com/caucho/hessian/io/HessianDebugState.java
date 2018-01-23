@@ -110,9 +110,6 @@ public class HessianDebugState implements Hessian2Constants
   public void next(int ch)
     throws IOException
   {
-//      System.out.print("^^^^^^^^^^");
-//      System.out.print(ch);
-//      System.out.print("************");
       _dbg.print(String.format("{\\x%02x}", ch));
       _dbg.print(String.format("{\\d%03d}", ch));
     _state = _state.next(ch);
