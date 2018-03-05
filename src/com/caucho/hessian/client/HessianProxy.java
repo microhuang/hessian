@@ -172,15 +172,17 @@ public class HessianProxy implements InvocationHandler, Serializable {
 
       is = getInputStream(conn);
 
+      
       if (log.isLoggable(Level.FINEST)) {
         PrintWriter dbg = new PrintWriter(new LogWriter(log));
         HessianDebugInputStream dIs
           = new HessianDebugInputStream(is, dbg);
 
-        dIs.startTop2();
+        dIs.startTop2(); //处理协议标记
 
         is = dIs;
       }
+      
 
       AbstractHessianInput in;
 

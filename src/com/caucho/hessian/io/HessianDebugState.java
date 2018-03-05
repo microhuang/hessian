@@ -110,8 +110,15 @@ public class HessianDebugState implements Hessian2Constants
   public void next(int ch)
     throws IOException
   {
-      _dbg.print(String.format("{\\x%02x}", ch));
-      _dbg.print(String.format("{\\d%03d}", ch));
+      if(ch>=0)
+      {
+        _dbg.print(String.format("{\\x%02x}", ch));
+        _dbg.print(String.format("{\\d%03d}", ch));
+      }
+//      else if(ch<-1)
+//      {
+//        log.warning(String.format("意外的序列值: ( {%d} )", ch));
+//      }
     _state = _state.next(ch);
   }
 
